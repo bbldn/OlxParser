@@ -12,5 +12,8 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register(): void
     {
+        $this->app->singleton(MainParserContext::class, function () {
+            return new MainParserContext(config('main_parser.olx_url'));
+        });
     }
 }
